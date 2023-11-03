@@ -7,9 +7,9 @@ namespace LR1.Services
     {
         private static List<InsurancePolicy> policies = new List<InsurancePolicy>();
         private ConsoleView view;
-        public InsurancePolicyService()
+        public InsurancePolicyService(ConsoleView view)
         {
-            view = new ConsoleView();
+            this.view = view;
         }
         public void Init()
         {
