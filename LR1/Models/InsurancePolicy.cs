@@ -1,4 +1,6 @@
-﻿public class InsurancePolicy
+﻿using LR1;
+
+public class InsurancePolicy: IModel
 {
     public long Id { get; set; }
     public string OwnerName { get; set; }
@@ -29,4 +31,5 @@
     }
 
     public virtual string Concat() => Id + OwnerName + OwnerSurname + OwnerLastName;
+
 }

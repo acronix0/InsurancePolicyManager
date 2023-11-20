@@ -1,16 +1,18 @@
 ﻿using System.Globalization;
+using LR1.Factories;
 using LR1.Views;
 
 namespace LR1.Services
 {
     internal class InsurancePolicyService
     {
-        private static List<InsurancePolicy> policies = new List<InsurancePolicy>();
+        private static List<IModel> policies = new List<IModel>();
         private ConsoleView view;
         public InsurancePolicyService(ConsoleView view)
         {
             this.view = view;
         }
+
         public void Init()
         {
             view.PrintTitle("Система учета страховых полисов");
@@ -113,7 +115,7 @@ namespace LR1.Services
                 else if (policy is HousingInsurance)
                     printHousingInsurance((HousingInsurance)policy);
                 else
-                    printPolicy(policy);
+                    printPolicy((InsurancePolicy)policy);
             }
         }
 
@@ -151,8 +153,10 @@ namespace LR1.Services
                 else if (policy is HousingInsurance)
                     printHousingInsurance((HousingInsurance)policy);
                 else
-                    printPolicy(policy);
+                    printPolicy((InsurancePolicy)policy);
             });
         }
+
+       
     }
 }
